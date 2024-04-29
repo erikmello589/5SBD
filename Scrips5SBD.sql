@@ -100,6 +100,21 @@ INSERT INTO tb_carga (id_produto, data_pedido, nome_produto, quantidade_produto,
 (9, '2022-04-09', 'Mouse sem fio', 2, 30.00, 'fernanda@example.com', 'Fernanda Oliveira', 'Av. I, 789'),
 (10, '2022-04-10', 'Teclado mecânico', 1, 80.00, 'rafael@example.com', 'Rafael Santos', 'Rua J, 654');
 
+-- Inserir pedidos a partir da tabela de carga
+INSERT INTO pedido (id_cliente, data_pedido, status)
+SELECT id_cliente, data_pedido, 'Novo' AS status
+FROM tb_carga;
+
+-- Inserir itens de pedido para cada pedido
+INSERT INTO itemPedido (id_pedido, id_produto, quantidade, preco_unitario, subtotal)
+SELECT p.id_pedido, c.id_produto, c.quantidade_produto, (c.subtotal_itemPedido / c.quantidade_produto), c.subtotal_itemPedido
+FROM tb_carga c
+INNER JOIN pedido p ON c.id_pedido = p.id_pedido;
+
+-- Limpar a tabela tb_carga após a inserção
+TRUNCATE TABLE tb_carga;
+
+-- retorna uma tabela com duas colunas, uma com o id do pedido e outra com o valor total dele
 SELECT p.id_pedido, SUM(ip.subtotal) AS total_pedido
 FROM pedido p
 JOIN itemPedido ip ON p.id_pedido = ip.id_pedido
