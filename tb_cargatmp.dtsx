@@ -1,0 +1,1298 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/6/2024 4:20:36 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="CIANETO"
+  DTS:CreatorName="CIANETO\Administrator"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{4717E274-EADF-49D6-8CC7-9957EAD0B2CE}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5491.4"
+  DTS:LocaleID="1046"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="DTSX_AE_PAE"
+  DTS:ProtectionLevel="0"
+  DTS:VersionGUID="{09792F22-A946-4A8A-B324-083CDD292F4C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{EA8BFB43-1787-4331-8714-CCE48AE64B1D}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CIANETO;Initial Catalog=5SBD;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{895BC6CA-8907-4989-8BB4-79A1D792B25A}"
+      DTS:ObjectName="SourceConnectionFlatFile">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1046"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrator\Downloads\tb_cargatmp - GB.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="pedido_id"
+              DTS:DTSID="{5B9E0465-82B4-4E0E-A2C0-CD6B2C66A9D4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="item_pedido_id"
+              DTS:DTSID="{A83DEA4E-FDBE-4A70-9C07-5102897625B6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="data_compra"
+              DTS:DTSID="{C79CD28B-DEC6-4752-AB5D-D301BFD8BB56}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="data_pagamento"
+              DTS:DTSID="{71BD65B5-4E31-41B9-9295-F18E86B4E5DB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cliente_email"
+              DTS:DTSID="{3F0D4AFA-5125-44CF-BB22-89D70B69C48E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cliente_nome"
+              DTS:DTSID="{FC2D8253-7E3F-4203-92FC-77E072CFC82E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cliente_cpf"
+              DTS:DTSID="{2C596F5F-B652-4D58-AF76-8EC77CC35A3F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cliente_celular"
+              DTS:DTSID="{11F056DD-0859-461F-8F90-99107D8170D6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="produto_sku"
+              DTS:DTSID="{5E912E26-3786-48DF-8DD7-152A4623ABA9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="produto_nome"
+              DTS:DTSID="{D6E387CA-C42D-4EFF-9125-31CEA19E84EE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="quantidade_comprada"
+              DTS:DTSID="{8A98C558-EA22-4C2D-876E-A97AABA2E7FA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="moedaUtilizada"
+              DTS:DTSID="{58F11E7D-C649-46B9-8E0C-E96B748EB7FB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="item_pedido_preco"
+              DTS:DTSID="{6D85386E-E83B-46EC-BBFA-458076E22E11}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="tipo_entrega"
+              DTS:DTSID="{FB074B36-0ABB-4F60-8A7A-10A1F3EC1578}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="destinatario_nome"
+              DTS:DTSID="{F3543133-E938-42A2-BB84-C1D7AE4BEC26}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="endereco_entrega"
+              DTS:DTSID="{4D074AE9-254A-45AF-A722-CABC137DB281}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cidade_entrega"
+              DTS:DTSID="{FAD083DE-7B72-41A7-8C08-C28C1DA4B00C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="estado_entrega"
+              DTS:DTSID="{E6B79DE8-61AD-468D-8F99-9BFAAF696E16}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cep_entrega"
+              DTS:DTSID="{18BE184A-ABB8-42F1-88E7-4BFAD45BCEF6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="pais_entrega"
+              DTS:DTSID="{DF536D8A-17F6-4C9D-8512-94B1E7553A94}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{01FA9A03-773E-4B6E-BCA0-A7BA1AFEFEDF}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - tb_cargatmp - GB"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[tb_cargatmp - GB]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].Columns[pedido_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="pedido_id"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[pedido_id]"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[pedido_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].Columns[item_pedido_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="item_pedido_id"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[item_pedido_id]"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[item_pedido_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].Columns[data_compra]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="data_compra"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[data_compra]"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[data_compra]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].Columns[data_pagamento]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="data_pagamento"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[data_pagamento]"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[data_pagamento]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].Columns[cliente_email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="cliente_email"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[cliente_email]"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[cliente_email]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].Columns[cliente_nome]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="cliente_nome"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[cliente_nome]"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[cliente_nome]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].Columns[cliente_cpf]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="cliente_cpf"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[cliente_cpf]"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[cliente_cpf]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].Columns[cliente_celular]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="cliente_celular"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[cliente_celular]"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[cliente_celular]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].Columns[produto_sku]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="produto_sku"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[produto_sku]"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[produto_sku]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].Columns[produto_nome]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="produto_nome"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[produto_nome]"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[produto_nome]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].Columns[quantidade_comprada]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="quantidade_comprada"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[quantidade_comprada]"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[quantidade_comprada]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].Columns[moedaUtilizada]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="moedaUtilizada"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[moedaUtilizada]"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[moedaUtilizada]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].Columns[item_pedido_preco]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="item_pedido_preco"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[item_pedido_preco]"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[item_pedido_preco]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].Columns[tipo_entrega]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="tipo_entrega"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[tipo_entrega]"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[tipo_entrega]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].Columns[destinatario_nome]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="destinatario_nome"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[destinatario_nome]"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[destinatario_nome]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].Columns[endereco_entrega]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="endereco_entrega"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[endereco_entrega]"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[endereco_entrega]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].Columns[cidade_entrega]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="cidade_entrega"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[cidade_entrega]"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[cidade_entrega]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].Columns[estado_entrega]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="estado_entrega"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[estado_entrega]"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[estado_entrega]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].Columns[cep_entrega]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="cep_entrega"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[cep_entrega]"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[cep_entrega]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].Columns[pais_entrega]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="pais_entrega"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[pais_entrega]"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[pais_entrega]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[pedido_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="pedido_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[item_pedido_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="item_pedido_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[data_compra]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="data_compra" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[data_pagamento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="data_pagamento" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[cliente_email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cliente_email" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[cliente_nome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cliente_nome" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[cliente_cpf]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cliente_cpf" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[cliente_celular]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cliente_celular" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[produto_sku]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="produto_sku" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[produto_nome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="produto_nome" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[quantidade_comprada]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="quantidade_comprada" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[moedaUtilizada]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="moedaUtilizada" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[item_pedido_preco]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="item_pedido_preco" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[tipo_entrega]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="tipo_entrega" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[destinatario_nome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="destinatario_nome" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[endereco_entrega]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="endereco_entrega" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[cidade_entrega]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cidade_entrega" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[estado_entrega]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="estado_entrega" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[cep_entrega]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cep_entrega" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input].ExternalColumns[pais_entrega]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="pais_entrega" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1046"
+              name="Source - tb_cargatmp - GB_csv"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[pedido_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[pedido_id]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[pedido_id]"
+                      name="pedido_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[item_pedido_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[item_pedido_id]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[item_pedido_id]"
+                      name="item_pedido_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[data_compra]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[data_compra]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[data_compra]"
+                      name="data_compra"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[data_pagamento]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[data_pagamento]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[data_pagamento]"
+                      name="data_pagamento"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[cliente_email]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[cliente_email]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[cliente_email]"
+                      name="cliente_email"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[cliente_nome]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[cliente_nome]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[cliente_nome]"
+                      name="cliente_nome"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[cliente_cpf]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[cliente_cpf]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[cliente_cpf]"
+                      name="cliente_cpf"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[cliente_celular]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[cliente_celular]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[cliente_celular]"
+                      name="cliente_celular"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[produto_sku]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[produto_sku]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[produto_sku]"
+                      name="produto_sku"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[produto_nome]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[produto_nome]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[produto_nome]"
+                      name="produto_nome"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[quantidade_comprada]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[quantidade_comprada]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[quantidade_comprada]"
+                      name="quantidade_comprada"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[moedaUtilizada]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[moedaUtilizada]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[moedaUtilizada]"
+                      name="moedaUtilizada"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[item_pedido_preco]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[item_pedido_preco]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[item_pedido_preco]"
+                      name="item_pedido_preco"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[tipo_entrega]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[tipo_entrega]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[tipo_entrega]"
+                      name="tipo_entrega"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[destinatario_nome]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[destinatario_nome]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[destinatario_nome]"
+                      name="destinatario_nome"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[endereco_entrega]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[endereco_entrega]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[endereco_entrega]"
+                      name="endereco_entrega"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[cidade_entrega]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[cidade_entrega]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[cidade_entrega]"
+                      name="cidade_entrega"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[estado_entrega]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[estado_entrega]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[estado_entrega]"
+                      name="estado_entrega"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[cep_entrega]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[cep_entrega]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[cep_entrega]"
+                      name="cep_entrega"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[pais_entrega]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[pais_entrega]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].Columns[pais_entrega]"
+                      name="pais_entrega"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[pedido_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="pedido_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[item_pedido_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="item_pedido_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[data_compra]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="data_compra" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[data_pagamento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="data_pagamento" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[cliente_email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cliente_email" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[cliente_nome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cliente_nome" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[cliente_cpf]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cliente_cpf" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[cliente_celular]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cliente_celular" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[produto_sku]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="produto_sku" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[produto_nome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="produto_nome" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[quantidade_comprada]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="quantidade_comprada" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[moedaUtilizada]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="moedaUtilizada" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[item_pedido_preco]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="item_pedido_preco" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[tipo_entrega]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="tipo_entrega" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[destinatario_nome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="destinatario_nome" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[endereco_entrega]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="endereco_entrega" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[cidade_entrega]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cidade_entrega" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[estado_entrega]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="estado_entrega" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[cep_entrega]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cep_entrega" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output].ExternalColumns[pais_entrega]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="pais_entrega" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1.Paths[Flat File Source Output]"
+              endId="Package\Data Flow Task 1\Destination - tb_cargatmp - GB.Inputs[Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Data Flow Task 1\Source - tb_cargatmp - GB_csv.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Preparation SQL Task 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{20F8638B-F6ED-4A96-A384-F925D71307BF}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Preparation SQL Task 1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{EA8BFB43-1787-4331-8714-CCE48AE64B1D}"
+          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[tb_cargatmp - GB] (&#xA;[pedido_id] varchar(50),&#xA;[item_pedido_id] varchar(50),&#xA;[data_compra] varchar(50),&#xA;[data_pagamento] varchar(50),&#xA;[cliente_email] varchar(50),&#xA;[cliente_nome] varchar(50),&#xA;[cliente_cpf] varchar(50),&#xA;[cliente_celular] varchar(50),&#xA;[produto_sku] varchar(50),&#xA;[produto_nome] varchar(50),&#xA;[quantidade_comprada] varchar(50),&#xA;[moedaUtilizada] varchar(50),&#xA;[item_pedido_preco] varchar(50),&#xA;[tipo_entrega] varchar(50),&#xA;[destinatario_nome] varchar(50),&#xA;[endereco_entrega] varchar(50),&#xA;[cidade_entrega] varchar(50),&#xA;[estado_entrega] varchar(50),&#xA;[cep_entrega] varchar(50),&#xA;[pais_entrega] varchar(50)&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{51DA3A47-457D-4054-B1DD-B3DD32B22EC2\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{51DA3A47-457D-4054-B1DD-B3DD32B22EC2}"
+      DTS:From="Package\Preparation SQL Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{51DA3A47-457D-4054-B1DD-B3DD32B22EC2}"
+      DTS:To="Package\Data Flow Task 1" />
+  </DTS:PrecedenceConstraints>
+</DTS:Executable>

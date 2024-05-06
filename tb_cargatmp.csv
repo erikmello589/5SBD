@@ -1,0 +1,1 @@
+pedido_id,item_pedido_id,data_compra,data_pagamento,cliente_email,cliente_nome,cliente_cpf,cliente_celular,produto_sku,produto_nome,quantidade_comprada,moedaUtilizada,item_pedido_preco,tipo_entrega,destinatario_nome,endereco_entrega,cidade_entrega,estado_entrega,cep_entrega,pais_entrega
