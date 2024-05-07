@@ -1,3 +1,78 @@
+CREATE TABLE tb_cargatmp (
+    pedido_id INT,
+    item_pedido_id INT,
+    data_compra DATETIME,
+    data_pagamento DATETIME,
+    cliente_email VARCHAR(100),
+    cliente_nome VARCHAR(100),
+    cliente_cpf VARCHAR(20),
+    cliente_celular VARCHAR(20),
+    produto_sku VARCHAR(50),
+    produto_nome VARCHAR(100),
+    quantidade_comprada INT,
+    moedaUtilizada VARCHAR(10),
+    item_pedido_preco DECIMAL(10, 2),
+    tipo_entrega VARCHAR(50),
+    destinatario_nome VARCHAR(100),
+    endereco_entrega VARCHAR(200),
+    cidade_entrega VARCHAR(50),
+    estado_entrega VARCHAR(50),
+    cep_entrega VARCHAR(20),
+    pais_entrega VARCHAR(50)
+);
+
+CREATE TABLE clientes (
+    cliente_email VARCHAR(100) NULL,
+    cliente_nome VARCHAR(100) NULL,
+    cliente_cpf VARCHAR(20) NULL,
+    cliente_celular VARCHAR(20) NULL,
+    PRIMARY KEY (cliente_cpf),
+    UNIQUE (cliente_cpf)
+);
+
+CREATE TABLE produtos (
+    produto_id INT UNIQUE,
+    produto_sku VARCHAR(50) NULL,
+    produto_nome VARCHAR(100) NULL,
+    produto_estoque INT DEFAULT 0,
+    PRIMARY KEY (produto_id),
+    UNIQUE (produto_id)
+);
+
+CREATE TABLE pedidos (
+    pedido_id INT UNIQUE,
+    cliente_cpf VARCHAR(20) NULL,
+    preco_total DECIMAL(10, 2) NULL,
+    data_compra DATETIME NULL,
+    data_pagamento DATETIME NULL,
+    tipo_entrega VARCHAR(50) NULL,
+    destinatario_nome VARCHAR(100) NULL,
+    endereco_entrega VARCHAR(200) NULL,
+    cidade_entrega VARCHAR(100) NULL,
+    estado_entrega VARCHAR(50) NULL,
+    cep_entrega VARCHAR(20) NULL,
+    pais_entrega VARCHAR(50) NULL,
+    status_pedido VARCHAR(50) NULL,
+    PRIMARY KEY (pedido_id),
+    FOREIGN KEY (cliente_cpf) REFERENCES clientes (cliente_cpf)
+);
+
+CREATE TABLE itensPedido (
+    item_pedido_id INT UNIQUE,
+    pedido_id INT NULL,
+    produto_id INT NULL,
+    quantidade_comprada INT NULL,
+    item_pedido_preco DECIMAL(10, 2) NULL,
+    PRIMARY KEY (item_pedido_id),
+    FOREIGN KEY (pedido_id) REFERENCES pedidos (pedido_id)
+    FOREIGN KEY (produto_id) REFERENCES produtos(produto_id)
+);
+
+
+
+
+
+-- COMENTARIO DE SUGESTÃO
 CREATE TABLE produto (
     id_produto INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255),
