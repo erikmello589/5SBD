@@ -68,131 +68,27 @@ CREATE TABLE itensPedido (
     FOREIGN KEY (produto_id) REFERENCES produtos(produto_id)
 );
 
+-- preenche carga temporaria com exemplos (ou pode vir do .csv)
+INSERT INTO tb_cargatmp (pedido_id, item_pedido_id, data_compra, data_pagamento, cliente_email, cliente_nome, cliente_cpf, cliente_celular, produto_sku, produto_nome, quantidade_comprada, moedaUtilizada, item_pedido_preco, tipo_entrega, destinatario_nome, endereco_entrega, cidade_entrega, estado_entrega, cep_entrega, pais_entrega)
+VALUES
+    (1, 101, '2024-05-06 09:30:00', '2024-05-06 09:45:00', 'cliente1@email.com', 'Cliente 1', '123.456.789-00', '(11) 98765-4321', 'SKU123', 'Produto 1', 2, 'USD', 25.99, 'Entrega Expressa', 'Destinatário 1', 'Rua A, 123', 'Cidade A', 'Estado A', '12345-678', 'País A'),
+    (2, 102, '2024-05-05 14:00:00', '2024-05-05 14:15:00', 'cliente2@email.com', 'Cliente 2', '987.654.321-00', '(22) 12345-6789', 'SKU456', 'Produto 2', 1, 'EUR', 39.99, 'Entrega Padrão', 'Destinatário 2', 'Rua B, 456', 'Cidade B', 'Estado B', '98765-432', 'País B'),
+    (3, 103, '2024-05-04 11:45:00', '2024-05-04 12:00:00', 'cliente3@email.com', 'Cliente 3', '456.789.123-00', '(33) 54321-9876', 'SKU789', 'Produto 3', 3, 'BRL', 15.99, 'Entrega Rápida', 'Destinatário 3', 'Rua C, 789', 'Cidade C', 'Estado C', '54321-876', 'País C');
 
+-- inserindo produtos no estoque INICIAL
+INSERT INTO produtos(produto_id, produto_sku, produto_nome, produto_estoque)
+VALUES
+(1, 'SKU1001', 'Camisa de lã', 10),
+(2, 'SKU1002', 'Mochila', 20),
+(3, 'SKU1003', 'Bexiga', 15);
 
+-- Inserindo em Clientes que estão na CargaTemp em Clientes [Não vai inserir o mesmo cliente 2 vezes porque o CPF é único e há o DISTINCT]
+INSERT INTO clientes (cliente_cpf, cliente_nome, cliente_email, cliente_celular)
+SELECT DISTINCT cliente_cpf, cliente_nome, cliente_email, cliente_celular
+FROM tb_cargatmp
+WHERE cliente_cpf NOT IN (SELECT cliente_cpf FROM clientes);
 
-
--- COMENTARIO DE SUGESTÃO
-CREATE TABLE produto (
-    id_produto INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(255),
-    descricao TEXT,
-    preco DECIMAL(10, 2)
-);
-
-INSERT INTO produto (nome, descricao, preco) VALUES
-('Camiseta branca', 'Camiseta básica branca de algodão', 20.00),
-('Calça jeans', 'Calça jeans azul com corte moderno', 45.00),
-('Tênis esportivo', 'Tênis preto para corrida com amortecimento', 60.00),
-('Mochila escolar', 'Mochila resistente com compartimentos', 35.00),
-('Relógio digital', 'Relógio de pulso com cronômetro e alarme', 25.00),
-('Óculos de sol', 'Óculos de sol estilo aviador com lentes polarizadas', 30.00),
-('Fones de ouvido', 'Fones de ouvido sem fio com cancelamento de ruído', 50.00),
-('Câmera digital', 'Câmera compacta com zoom óptico e gravação em Full HD', 120.00),
-('Mouse sem fio', 'Mouse ergonômico com conectividade Bluetooth', 15.00),
-('Teclado mecânico', 'Teclado retroiluminado com switches mecânicos', 80.00);
-
-CREATE TABLE cliente (
-    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(255),
-    email VARCHAR(255),
-    endereco VARCHAR(255),
-    telefone VARCHAR(20)
-);
-
-INSERT INTO cliente (nome, email, endereco, telefone) VALUES
-('João Silva', 'joao@example.com', 'Rua A, 123', '(11) 1234-5678'),
-('Maria Santos', 'maria@example.com', 'Av. B, 456', '(11) 9876-5432'),
-('José Oliveira', 'jose@example.com', 'Rua C, 789', '(11) 5555-4444'),
-('Ana Souza', 'ana@example.com', 'Rua D, 321', '(11) 2222-3333'),
-('Pedro Pereira', 'pedro@example.com', 'Av. E, 654', '(11) 9999-8888'),
-('Carla Rodrigues', 'carla@example.com', 'Rua F, 987', '(11) 7777-6666'),
-('Lucas Almeida', 'lucas@example.com', 'Av. G, 321', '(11) 3333-2222'),
-('Mariana Costa', 'mariana@example.com', 'Rua H, 456', '(11) 6666-7777'),
-('Fernanda Oliveira', 'fernanda@example.com', 'Av. I, 789', '(11) 8888-9999'),
-('Rafael Santos', 'rafael@example.com', 'Rua J, 654', '(11) 1111-2222');
-
-CREATE TABLE itemPedido (
-    id_item INT AUTO_INCREMENT PRIMARY KEY,
-    id_pedido INT,
-    id_produto INT,
-    quantidade INT,
-    preco_unitario DECIMAL(10, 2),
-    subtotal DECIMAL(10, 2)
-);
-
-INSERT INTO itemPedido (id_pedido, id_produto, quantidade, preco_unitario, subtotal) VALUES
-(1, 1, 2, 25.00, 50.00),
-(1, 3, 1, 45.00, 45.00),
-(2, 2, 3, 20.00, 60.00),
-(2, 5, 1, 30.00, 30.00),
-(3, 4, 2, 35.00, 70.00),
-(3, 7, 1, 50.00, 50.00),
-(4, 1, 2, 25.00, 50.00),
-(4, 6, 2, 30.00, 60.00),
-(5, 3, 3, 45.00, 135.00),
-(5, 8, 1, 120.00, 120.00);
-
-CREATE TABLE pedido (
-    id_pedido INT AUTO_INCREMENT PRIMARY KEY,
-    id_cliente INT,
-    data_pedido DATE,
-    status VARCHAR(50)
-);
-
-INSERT INTO pedido (id_cliente, data_pedido, status) VALUES
-(1, '2022-04-01', 'Em processamento'),
-(2, '2022-04-02', 'Aguardando pagamento'),
-(3, '2022-04-03', 'Em transporte'),
-(4, '2022-04-04', 'Entregue'),
-(5, '2022-04-05', 'Em processamento'),
-(1, '2022-04-06', 'Aguardando pagamento'),
-(2, '2022-04-07', 'Em transporte'),
-(3, '2022-04-08', 'Entregue'),
-(4, '2022-04-09', 'Em processamento'),
-(5, '2022-04-10', 'Aguardando pagamento');
-
-CREATE TABLE tb_carga (
-    id_produto INT,
-    data_pedido DATE,
-    nome_produto VARCHAR(255),
-    quantidade_produto INT,
-    subtotal_itemPedido DECIMAL(10, 2),
-    email_cliente VARCHAR(255),
-    nome_cliente VARCHAR(255),
-    endereco_cliente VARCHAR(255)
-);
-
-INSERT INTO tb_carga (id_produto, data_pedido, nome_produto, quantidade_produto, subtotal_itemPedido, email_cliente, nome_cliente, endereco_cliente) VALUES
-(1, '2022-04-01', 'Camiseta branca', 2, 50.00, 'joao@example.com', 'João Silva', 'Rua A, 123'),
-(2, '2022-04-02', 'Calça jeans', 1, 45.00, 'maria@example.com', 'Maria Santos', 'Av. B, 456'),
-(3, '2022-04-03', 'Tênis esportivo', 3, 60.00, 'jose@example.com', 'José Oliveira', 'Rua C, 789'),
-(4, '2022-04-04', 'Mochila escolar', 2, 70.00, 'ana@example.com', 'Ana Souza', 'Rua D, 321'),
-(5, '2022-04-05', 'Relógio digital', 1, 30.00, 'pedro@example.com', 'Pedro Pereira', 'Av. E, 654'),
-(6, '2022-04-06', 'Óculos de sol', 2, 60.00, 'carla@example.com', 'Carla Rodrigues', 'Rua F, 987'),
-(7, '2022-04-07', 'Fones de ouvido', 3, 150.00, 'lucas@example.com', 'Lucas Almeida', 'Av. G, 321'),
-(8, '2022-04-08', 'Câmera digital', 1, 120.00, 'mariana@example.com', 'Mariana Costa', 'Rua H, 456'),
-(9, '2022-04-09', 'Mouse sem fio', 2, 30.00, 'fernanda@example.com', 'Fernanda Oliveira', 'Av. I, 789'),
-(10, '2022-04-10', 'Teclado mecânico', 1, 80.00, 'rafael@example.com', 'Rafael Santos', 'Rua J, 654');
-
--- Inserir pedidos a partir da tabela de carga
-INSERT INTO pedido (id_cliente, data_pedido, status)
-SELECT id_cliente, data_pedido, 'Novo' AS status
-FROM tb_carga;
-
--- Inserir itens de pedido para cada pedido
-INSERT INTO itemPedido (id_pedido, id_produto, quantidade, preco_unitario, subtotal)
-SELECT p.id_pedido, c.id_produto, c.quantidade_produto, (c.subtotal_itemPedido / c.quantidade_produto), c.subtotal_itemPedido
-FROM tb_carga c
-INNER JOIN pedido p ON c.id_pedido = p.id_pedido;
-
--- Limpar a tabela tb_carga após a inserção
-TRUNCATE TABLE tb_carga;
-
--- retorna uma tabela com duas colunas, uma com o id do pedido e outra com o valor total dele
-SELECT p.id_pedido, SUM(ip.subtotal) AS total_pedido
-FROM pedido p
-JOIN itemPedido ip ON p.id_pedido = ip.id_pedido
-GROUP BY p.id_pedido;
-
-
+-- Inserindo em Pedidos os que estão em CargaTemp, ele também calcula o total de cada pedido 
+INSERT INTO pedidos (pedido_id, data_compra, data_pagamento, cliente_cpf, preco_total)
+SELECT pedido_id, data_compra, data_pagamento, cliente_cpf, (item_pedido_preco * quantidade_comprada) AS preco_total
+FROM tb_cargatmp;
