@@ -1,1 +1,4 @@
 pedido_id,item_pedido_id,data_compra,data_pagamento,cliente_email,cliente_nome,cliente_cpf,cliente_celular,produto_sku,produto_nome,quantidade_comprada,moedaUtilizada,item_pedido_preco,tipo_entrega,destinatario_nome,endereco_entrega,cidade_entrega,estado_entrega,cep_entrega,pais_entrega
+1,101,2024-05-06 09:30:00,2024-05-06 09:45:00,cliente1@email.com,Cliente 1,123.456.789-00,(11) 98765-4321,SKU123,Produto 1,2,USD,25.99,Entrega Expressa,Destinatário 1,Rua A numero 123,Cidade A,Estado A,12345-678,País A
+2,102,2024-05-05 14:00:00,2024-05-05 14:15:00,cliente2@email.com,Cliente 2,987.654.321-00,(22) 12345-6789,SKU456,Produto 2,1,EUR,39.99,Entrega Padrão,Destinatário 2,Rua B numrero 456,Cidade B,Estado B,98765-432,País B
+3,103,2024-05-04 11:45:00,2024-05-04 12:00:00,cliente3@email.com,Cliente 3,456.789.123-00,(33) 54321-9876,SKU789,Produto 3,3,BRL,15.99,Entrega Rápida,Destinatário 3,Rua C numero 789,Cidade C,Estado C,54321-876,País C
