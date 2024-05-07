@@ -93,6 +93,11 @@ INSERT INTO pedidos (pedido_id, data_compra, data_pagamento, cliente_cpf, preco_
 SELECT pedido_id, data_compra, data_pagamento, cliente_cpf, (item_pedido_preco * quantidade_comprada) AS preco_total
 FROM tb_cargatmp;
 
+-- Ordenando os pedidos por ordem de preco_total
+SELECT *
+FROM pedidos
+ORDER BY preco_total DESC;
+
 -- Inserção de Itens de Pedido [se o produto já existir na lista, soma a quantidade comprada com a que se deseja inserir]
 INSERT INTO itensPedido (item_pedido_id, pedido_id, produto_id, quantidade_comprada, item_pedido_preco)
 SELECT tbc.item_pedido_id, tbc.pedido_id, p.produto_id, tbc.quantidade_comprada, tbc.item_pedido_preco
