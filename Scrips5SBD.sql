@@ -92,3 +92,19 @@ WHERE cliente_cpf NOT IN (SELECT cliente_cpf FROM clientes);
 INSERT INTO pedidos (pedido_id, data_compra, data_pagamento, cliente_cpf, preco_total)
 SELECT pedido_id, data_compra, data_pagamento, cliente_cpf, (item_pedido_preco * quantidade_comprada) AS preco_total
 FROM tb_cargatmp;
+
+-- Inserção de Itens de Pedido [se o produto já existir na lista, soma a quantidade comprada com a que se deseja inserir]
+INSERT INTO itensPedido (item_pedido_id, pedido_id, produto_id, quantidade_comprada, item_pedido_preco)
+SELECT tbc.item_pedido_id, tbc.pedido_id, p.produto_id, tbc.quantidade_comprada, tbc.item_pedido_preco
+FROM tb_cargatmp tbc
+JOIN produtos p ON tbc.produto_sku = p.produto_sku
+ON DUPLICATE KEY UPDATE
+    quantidade_comprada = itensPedido.quantidade_comprada + VALUES(quantidade_comprada);
+
+
+-- Atualizando o estoque de Produtos baseado em cada quantidade comprada pelos clientes nos pedidos [diz o total de quantos itens foram comprados de cada produto]
+UPDATE produtos p
+INNER JOIN itensPedido ip ON p.produto_id = ip.produto_id
+SET p.produto_estoque = p.produto_estoque - ip.quantidade_comprada;
+
+--TRUNCATE TABLE tb_cargatmp;
